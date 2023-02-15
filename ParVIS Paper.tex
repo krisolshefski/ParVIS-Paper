@@ -1,0 +1,114 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%    INSTITUTE OF PHYSICS PUBLISHING                                   %
+%                                                                      %
+%   `Preparing an article for publication in an Institute of Physics   %
+%    Publishing journal using LaTeX'                                   %
+%                                                                      %
+%    LaTeX source code `ioplau2e.tex' used to generate `author         %
+%    guidelines', the documentation explaining and demonstrating use   %
+%    of the Institute of Physics Publishing LaTeX preprint files       %
+%    `iopart.cls, iopart12.clo and iopart10.clo'.                      %
+%                                                                      %
+%    `ioplau2e.tex' itself uses LaTeX with `iopart.cls'                %
+%                                                                      %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+%
+% First we have a character check
+%
+% ! exclamation mark    " double quote  
+% # hash                ` opening quote (grave)
+% & ampersand           ' closing quote (acute)
+% $ dollar              % percent       
+% ( open parenthesis    ) close paren.  
+% - hyphen              = equals sign
+% | vertical bar        ~ tilde         
+% @ at sign             _ underscore
+% { open curly brace    } close curly   
+% [ open square         ] close square bracket
+% + plus sign           ; semi-colon    
+% * asterisk            : colon
+% < open angle bracket  > close angle   
+% , comma               . full stop
+% ? question mark       / forward slash 
+% \ backslash           ^ circumflex
+%
+% ABCDEFGHIJKLMNOPQRSTUVWXYZ 
+% abcdefghijklmnopqrstuvwxyz 
+% 1234567890
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+\documentclass[12pt]{iopart}
+\newcommand{\gguide}{{\it Preparing graphics for IOP Publishing journals}}
+%Uncomment next line if AMS fonts required
+%\usepackage{iopams}  
+\begin{document}
+
+\title[]{An illumination scattering technique for measuring particle distribution at a gas turbine engine inlet}
+
+\author{Kristopher Olshefski$^1$, Gwibo Byun$^1$, Tomas Vlach$^1$, K. Todd Lowe$^1$, and Wing Ng$^2$}
+
+\address{$^1$ Crofton Department of Aerospace and Ocean Engineering, Blacksburg, VA, USA}
+\address{$^2$ Department of Mechanical Engineering, Blacksburg, VA, USA}
+\ead{krisolshefski@vt.edu}
+\vspace{10pt}
+\begin{indented}
+\item[]XX 2023
+\end{indented}
+
+\begin{abstract}
+The present study demonstrates the novel application of a method for assessing particle distribution at the inlet of a gas turbine engine. This method is termed the Virginia Tech particle visualization by illuminated scattering (ParVIS). This method uses only a simple light source and imaging camera to provide users with a qualitative snapshot of inlet particle distribution as well as particle mass flow and number density estimates at operationally relevant conditions. Image post-processing relates the scattering intensity of solid particles to the mass flow through the engine. For these tests, sand was delivered at a maximum average rate of approximately 1.5 g min$^{-1}$. Parameters are reported on a time-averaged basis as well as a time-resolved basis to the frame rate at which successive images are captured. Therefore, this technique allows investigators to gain a broad perspective of particle behavior at the engine inlet while also allowing users to resolve particle flow unsteadiness. Initial results show accurate estimations of injected particle mass flow, with a sand mass flow root-mean-square error of 0.16 g min$^{-1}$ as compared to the monitored mass flow value using a precision scale. This technique leads the effort in the advancement of diagnostic tools for engines operating under harsh conditions. 
+\end{abstract}
+
+%
+% Uncomment for keywords
+%\vspace{2pc}
+%\noindent{\it Keywords}: XXXXXX, YYYYYYYY, ZZZZZZZZZ
+%
+% Uncomment for Submitted to journal title message
+%\submitto{\JPA}
+%
+% Uncomment if a separate title page is required
+%\maketitle
+% 
+% For two-column output uncomment the next line and choose [10pt] rather than [12pt] in the \documentclass declaration
+\ioptwocol
+%
+
+
+
+\section{Introduction}
+Solid particulate ingestion is an inevitability for aircraft operating in hazardous environments. The presence of these particles may be due to atmospheric dust, volcanic ash, or sand when operating in arid environments. Because particle ingestion has been linked to premature engine wear, this phenomenon is of particular interest to researchers and manufacturers alike. This phenomenon has historically had significant impact on equipment, logistics and, in extreme cases, resulted in loss of life. In December 1989, a KLM Dutch Airlines 747-400 operating near Anchorage, AK unintentionally flew through the ash cloud of a recent volcanic eruption of Mt. Redoubt which sent ash more than 30,000 feet into the atmosphere [1]. The aircraft was equipped with four General Electric CF6-80C2 engines and experienced a four-engine flameout which caused the flight crew to make an emergency landing [2]. All four engines from the aircraft were replaced, costing the airline over 80 million dollars in replacements and repairs [3]. During periods of operation Iraqi Freedom, the United States Army had reduced availability of its CH-47 helicopters due to 75% to 95% premature engine failures which were directly linked to sand ingestion [4]. In 2010 after the eruption of the Eyjafjallajökul volcano, the subsequent ash cloud caused a total closure of European airspace. This resulted in the cancelation of thousands of flights and an estimated economic impact of nearly $2 billion [5]. In 2015, an MV-22 Osprey crashed during a training exercise in Hawaii, claiming the lives of two US Marines and injuring twenty other personnel [6]. The cause of the fatal crash was attributed to dust ingestion resulting in an engine failure.
+There has been substantial effort aimed at understanding the effects of particle ingestion on aircraft engines [7-15]. Much of this work has focused on the impact of particle deposition on turbine sections, blockages of cooling vanes, and erosion characteristics due to particle interactions [16,17]. However, there is still limited understanding of particle flow paths as they traverse an engine and even less work has focused on describing particle behavior at the inlet plane. Papadopoulos et al. conducted preliminary level demonstrations of an in-situ particle detector which identifies plasma interaction and dissociation with particles to determine particle size and relative concentration [18]. Moon et al. have developed a scattering-extinction based technique which leverages a machine-learning library to assess particle size, shape, and concentration at a gas turbine inlet [19,20]. However, each of these methods are limited by their complexity and do not yield a comprehensive description of the inlet particle distribution. There has also been considerable effort to develop airborne instrumentation which is capable of providing particle information about atmospheric aerosols and ice crystals [21-24]. Typically, these instruments sample particles in the sub-to-single-micron range and are point measurements instead of providing particle distribution over an area. Providing a means for determining particle ingestion quantities and particle distribution can be particularly valuable to researchers and engine manufacturers alike. To this end, we present an application of a novel particle visualization technique which is under development and has been tested at the inlet of a Rolls-Royce M250-C20B engine at the Virginia Tech Particle Ingestion Engine Test Stand to provide users with a qualitative snapshot of inlet particle distribution and particle mass flow and number density estimates at operationally relevant conditions. The work contained herein is presented as follows: Section 2 provides an overview of the methodology, experimental setup, and an assessment of measurement uncertainty and method limitations. Section 3 presents experimental results and provides discussion on the findings. Finally, Section 4 provides conclusions which may be drawn from the previously discussed results.   
+\section{Methods}
+The method functions by first projecting a one-inch-wide laser sheet from top (twelve o’clock) to bottom (six o’clock) at the inlet plane of a gas turbine engine. Next, images are continuously captured and saved for analysis. The ParVIS technique is then applied in post-processing and particle characteristics are reported.
+\subsection{Test Particles}
+The ingestion material of interest for our engine tests is MIL E-5007C, commonly known as C-Spec, which is a commercially available mixture of crushed quartz. This material is known for having a wide distribution of particle sizes which is representative of dusts encountered by operational aircraft. Particle sizes of C-Spec range from roughly 50-1300 $\mu$m. The particle size distribution from the manufacturer provides that only 3\% of particles are smaller than 75 $\mu$m and 50\% of particles are larger than 200 $\mu$m on a mass basis. These estimates are confirmed in the cumulative size distribution plot shown in Figure 1 which is taken from Collins, 2021 [25]. Because the mixture is almost exclusively quartz, a particle density of 2650 kg m$^-{3}$ is assumed.
+\subsection{Test Facilities}
+All tests discussed herein were conducted at the Virginia Tech Particle Ingestion Engine Stand using a Rolls-Royce model M250-C20B engine operating at ground idle condition. This condition corresponded to an engine mass flow rate of 0.744 kg s-1 and a bulk flow velocity of 64 m s-1 as measured by the test cell data acquisition system. Sand was introduced into the inlet flow at two conditions, a full loading condition and a half-loading condition. The full loading condition resulted in a particle concentration of 45 mg m-3 and the half-loading condition produced a particle concentration of 22.5 mg m-3. These values were chosen based on evidence provided by Clarkson that exposure at these levels may result in significant engine deterioration and erosive damage [11]. Four tests were conducted, two at each loading condition, at five-minute intervals of sand exposure. 
+\subsubsection{Engine Test Stand}
+Researchers at Virginia Tech are interested in performing on-engine sand exposure tests to learn more about how ingestion events lead to engine performance deterioration. Consequently, the Virginia Tech Particle Ingestion Engine Test Stand has been established as pictured in Figure 2. This facility is a fully functioning engine test facility located at the Advanced Propulsion and Power Laboratory (APPL) at Virginia Tech. The facility is currently configured for a Rolls-Royce model M250-C20B turboshaft engine which produces approximately 450 horsepower when operating at full capacity. The facility also includes an adjacent user control room which provides noise insulation as well as protection of personnel in case of emergency, an engine stand, auxiliary oil and fuel systems, an extensive suite of data acquisition and instrumentation for remote engine control and performance evaluation, and a water brake dynamometer system for power absorption. The facility is capable of continuous engine operation at a ground idle setting and up to one hour at full power for the model M250-C20B.
+\subsubsection{Particle Seeding}
+Particle seeding was achieved using an AccuRate particle feeder to provide a constant flow of C-Spec particles into the engine inlet. The feeder sat atop an Adam Equipment LTB 6002e scale and the weight of the particle feeder was continuously monitored throughout testing. This allowed for a precise measurement of total sand mass flow during each run. The feeder and scale were securely mounted to a platform above the engine inlet flow barrel. The particle feeder has a hopper that was filled with the sand sample, and a rotating helix which carried the sand to an exit nozzle. Depending on the setting, the feeder is capable of providing sand at a feed rate from 0.2 g min-1 up to 2 g min-1. From the exit nozzle, sand was routed into tubing and through an Exair Line Vac pnuematic particle conveyor. This particle conveyor works by:
+\begin{enumerate}
+    \item Facility compressed air is directed into an annular plenum chamber.
+    \item The flow is directed through nozzles into the throat of the conveyor. 
+    \item The resulting jet creates a low pressure region near the conveyor intake.
+    \item The vaccum draws particles through the conveyor and into the delivery nozzle. 
+\end{enumerate}
+The Line Vac creates a vacuum of -29.9 kPa with a supply pressue of 552 kPa. Previous investigations determined this pressure was adequate to supply particles to the engine inlet without backflow. Particles entered the inlet flow through a delivery nozzle which was positioned at centerline. The particle feeder, conveyor, and delivery nozzle are all used in conjunction to supply a consistent particle laden flow to the engine inlet. 
+\subsection{Particle Visualization by Illuminated Particle Scattering (ParVIS)}
+\subsubsection{Image Capture}
+A diagram of the experimental setup is shown in Figure 3.  A Coherent Genesis CW laser with up to 1W output at 514.5 nm wavelength was directed to a Thorlabs Scanning Galvanometer Mirror which induced a laser sheet at a predetermined scanning frequency. The laser sheet is then truncated to a 2.54 cm (1 in.) strip by passing through an optical window affixed to the inlet test section. The laser sheet is projected orthogonal to the direction of flow from the twelve o’clock position to the six o’clock position. A FLIR Blackfly S BFS-U3-31S4 camera fitted with an Edmund Optics 35 mm lens and 514.5 nm filter continuously capture images at an exposure time of 0.25 seconds. This camera is placed 152.4 cm (60 in.) directly upstream of the laser sheet at an angle of two degrees relative to the laser plane as seen in Figure 3. This slight angle facilitates an unobstructed view of the inlet centerline, the primary region of interest, as shown in Figure 4. Here, a particle sampling probe, used for a parallel study, is positioned such that the probe opening is concentric with the cylindrical test section. We can see that the center, the region of primary interest, is in clear view. A series of clean background images are then taken during engine operation prior to sand exposure. Once sand delivery begins, images are taken continuously until loading stops. 
+For all results discussed, images were captured using the one-inch-wide laser strip described above and depicted in Figure 4. However, full utility of the ParVIS technique can be realized by imaging a total cross section of the inlet plane. Further discussion on this will be presented in Section 3 below. 
+\subsubsection{Image Processing}
+For each sand loading campaign, both clean, sand free images and images including sand are captured. All images are captured as 16-bit, monochromatic, grayscale images. While the coloration in a grayscale image is not particle scattering intensity by the strict definition, the authors will refer to this coloration as “intensity” or “pixel intensity” herein and the terms may be considered interchangeable. The variation of pixel intensity with scattering angle is considered in Figure 5. It was determined that over the field of view, the scattering angle varies by $\pm2^\circ$. Using Mie scattering theory, we conclude that for a mean spheroid particle of 200 $\mu$m diameter at a wavelength of 514.5 nm, the intensity variation along the laser strip may be considered negligible.
+A background image is constructed from the mean values of a series of 240 continuous sand free images. This image is then used for background subtraction. Individual sand loading images are background subtracted to expose only sand particles passing through the laser sheet. An auto thresholding scheme using Otsu’s method is then applied to each background subtracted image to ensure complete isolation of sand particles [26]. The background subtracted images are summed together to create a single composite image which represents one minute’s worth of sand loading imagery. For the experiments conducted, a series of 240 sand loading images make up one composite image (one minute’s worth of data). The resulting composite image constitutes a single data series. Multiple data series images are gathered over the duration of one sand loading campaign. Four exposure campaigns occurred during the experiment analysed; two at the full loading condition (45mg m-3) and two at the half loading condition (22.5 mg m-3).  
+
+
+\bibliography{}
+
+
+\end{document}
+
